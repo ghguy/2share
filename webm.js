@@ -18,7 +18,7 @@ var app = express();
 
 app.get('/', function(req, res){
   sys.puts(util.inspect(req.headers, showHidden=false, depth=0));
-
+  file = req.param("id");
   var stat = fs.statSync(file);
   if (!stat.isFile()) return;
 
