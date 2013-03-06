@@ -30,5 +30,5 @@ bs.on('connection', function(client){
 //
 //
 
-server.listen(9000, "c1oud.info");
+server.listen(9000);
 console.log('HTTP and BinaryJS server started on port 9000');
