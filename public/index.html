@@ -16,8 +16,11 @@
         var file = e.originalEvent.dataTransfer.files[0];
         
         // Add to list of uploaded files
-        $('<div align="center"></div>').append($('<a></a>').text(file.name).prop('href', '/'+file.name)).appendTo('body');
-        
+        videof = 'http://'+location.hostname+':9001/p?id=./public/'+file.name;
+        // Add to list of uploaded files
+        $('<div align="center"></div>').append($('<a></a>').text(file.name).prop('href', videof)).appendTo('body');
+
+ 
         // `client.send` is a helper function that creates a stream with the 
         // given metadata, and then chunks up and streams the data.
         var stream = client.send(file, {name: file.name, size: file.size});
