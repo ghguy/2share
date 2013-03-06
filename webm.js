@@ -2,6 +2,7 @@
 var sys = require('sys');
 var fs = require('fs');
 var util = require('util');
+var path = require('path');
 /*
 if (process.argv.length != 4) {
   sys.puts('Require the following command line arguments:' +
@@ -16,9 +17,10 @@ var file = process.argv[3];
 var express = require('express')
 var app = express();
 
-app.get('/', function(req, res){
+app.get('/p', function(req, res){
   sys.puts(util.inspect(req.headers, showHidden=false, depth=0));
   file = req.param("id");
+file = path.join(path.join(__dirname, "public"), file);
   var stat = fs.statSync(file);
   if (!stat.isFile()) return;
 
