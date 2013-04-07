@@ -59,6 +59,14 @@ file = path.join(path.join(__dirname, "public"), file);
   stream.pipe(res);
 });
 
+app.configure(function(){
+    app.use(express.static(__dirname + '/public'));
+});
+
+app.get('/2', function(req, res){
+    res.sendfile(__dirname + '/views/crud.html');
+});
+
 app.listen(port);
 
 process.on('uncaughtException', function(err) {
