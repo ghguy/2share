@@ -136,6 +136,7 @@ function ctrlRead($scope, $filter) {
     $scope.createItem = function() {
         $scope.pagedItems[$scope.currentPage].push($scope.item);
         $scope.item.createdDate = new Date();
+        $scope.item.id = $scope.items.length + 1;
         $scope.items.push($scope.item);
 
         /*
@@ -163,13 +164,20 @@ function ctrlRead($scope, $filter) {
     };
 
     $scope.editItem = function(item) {
+        $scope.item = { id: item.id, name: item.name, description: item.description};   //opt out data-binding
+        $scope.originalItem = item;
+
         $scope.enterNew = false;
         $scope.editing = true;
-        $scope.item = item;
+        //$scope.item = item;   //no data-binding
     };
 
     $scope.updateItem = function() {
-        $scope.item.createdDate = new Date();
+        $scope.originalItem.createdDate = new Date();
+        $scope.originalItem.name = $scope.item.name;   //copy the attributes you need to update
+        $scope.originalItem.description = $scope.item.description; //copy the attributes you need to update
+        //clear temp items to remove any bindings from the input
+//        $scope.originalItem = undefined;
 
 /*
         $http.put('/students/' + $scope.student.id + '.json', {"student": $scope.student})
@@ -184,7 +192,7 @@ function ctrlRead($scope, $filter) {
 */
         $scope.enterNew = false;
         $scope.editing = false;
-        $scope.item = "";
+//        $scope.item = "";
     };
 
     $scope.deleteItem = function(item) {
