@@ -47,7 +47,7 @@
                 <div class="row span2">
                         <div class="span5">
                         <input type="submit" style="background: rgb(133, 109, 109);" class="btn btn-primary"
-                               value="Save" ng-click="createItem()">
+                               value="Save" ng-disabled="!(item.name && item.description)" ng-click="createItem()">
                         <a class="btn" ng-click="cancelSave()">Cancel</a>
                     </div>
                 </div>
@@ -78,7 +78,7 @@
 
                     <div class="row span2">
                         <div class="span5">
-                            <input type="submit" style="background: rgb(133, 109, 109);" class="btn btn-primary" value="Save" ng-click="updateItem()">
+                            <input type="submit" style="background: rgb(133, 109, 109);" class="btn btn-primary" value="Save" ng-disabled="!(item.name)" ng-click="updateItem()">
                             <a class="btn" ng-click="cancelSave()">Cancel</a>
                         </div>
                     </div>
