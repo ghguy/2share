@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+    <div id="container">
+        <div id="test">
+            <ul class="test_list">
+                <li><a href="http://whatever"><span id="t">link 1</span></a></li>
+            </ul>
+        </div>
+    </div>
+    <script src="http://code.jquery.com/jquery-2.0.0b2.min.js"></script>
+    <script>
+        function runJQuery() {
+            //alert($('#t').text());
+            for(var i=0; i<10000; i++) {
+                $('#t').text();
+            }
+        }
+        function runJavaScript() {
+            //alert(document.getElementById("t").textContent);
+            for(var i=0; i<10000; i++) {
+                document.getElementById("t").textContent;
+            }
+        }
+        runJQuery();
+        runJavaScript();
+    </script>
+</body>
+</html>
